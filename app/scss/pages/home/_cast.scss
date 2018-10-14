@@ -1,0 +1,46 @@
+.cast_cont{
+	@include sna_flex_container();
+	@include sna_flex_container_wrap(wrap);
+	padding: 5px;
+}
+
+.cast_item{
+	@include sna_flex_item();
+	@include sna_item_col_width_abs(calc(50% - 10px));
+	text-decoration: none;
+	color: inherit;
+	background: white;
+    margin: 5px;
+    background-clip: content-box;
+	border-radius: 5px;
+
+}
+
+
+.cast_media{
+	position: relative;
+}
+.mv_cast_placeholder_img{
+	max-width: 100%;
+	height: auto;
+}
+.mv_cast_img{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left:0;
+}
+
+.cast_info{
+	padding: 10px;
+}
+
+.cast_name{
+	font-weight: bold;
+	text-align: center;
+}
+.cast_char_name{
+	padding-top: 5px;
+	text-align: center;
+}

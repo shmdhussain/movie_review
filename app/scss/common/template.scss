@@ -1,0 +1,46 @@
+/*START:Reset Styles */
+@import "_reset.scss";
+/*END:Reset Styles */
+
+@import "_variable.scss";
+@import "../utils/_mixins.scss";
+@import "_fonts.scss";
+@import "_loader.scss";
+@import "_slider.scss";
+
+
+
+:root{
+	--theme_bg_color: #{$theme_bg_color};
+	--theme_bg_tab_color: #{$theme_bg_tab_color};
+	--theme_text_color: #{$theme_text_color};
+	--tab_head_highlight_stroke_color : #{$tab_head_highlight_stroke_color};
+
+
+	--more_menu_text_color: #{$more_menu_text_color};
+
+
+	--heading_font_family: #{$heading_font_family};
+	--body_font_family: #{$body_font_family};
+
+	--body_bg_color: #{$body_bg_color};
+	--content_bg_color:#{$content_bg_color};
+	--content_text_color:#{$content_text_color};
+
+	--cast_detail_media_bg_color: #{$cast_detail_media_bg_color};
+	--cast_detail_media_text_color: #{$cast_detail_media_text_color};
+
+	font-family: #{$body_font_family};	
+}
+
+*{
+	box-sizing: border-box;
+}
+
+a, a:focus, a:hover, a:active{
+	text-decoration: none;
+}
+
+.content{
+	line-height: 1.4;
+}

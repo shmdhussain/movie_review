@@ -1,0 +1,87 @@
+@import "../../common/_variable.scss";
+@import "../../utils/_mixins.scss";
+@import "_cast.scss";
+@import "_overview.scss";
+
+
+.tab_head_cont {
+    @include sna_flex_container();
+    background-color: $theme_bg_tab_color;
+    background-color: var(--theme_bg_tab_color);
+
+    color: $theme_text_color;
+    color: var(--theme_text_color);
+}
+
+.tab_head {
+    @include sna_flex_item();
+    padding: 10px 7px 7px 7px;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    border: none;
+    margin-bottom: 10px;
+    background: transparent;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    font-weight: bold;
+    &:after {
+        content: " ";
+        position: absolute;
+        background-color: transparent;
+        bottom: 0;
+        height: 3px;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: #{$tab_anim_duration} background-color;
+    }
+
+    &.active {
+        &:after {
+            background-color: $tab_head_highlight_stroke_color;
+            background-color: var(--tab_head_highlight_stroke_color);
+        }
+    }
+}
+
+
+
+
+.tab_content_cont {
+    @include sna_flex_container();
+    overflow: hidden;
+    position: relative;
+    // background-color: $body_bg_color;
+    // background-color: var(--body_bg_color);
+}
+
+.tab_content {
+    @include sna_flex_item();
+    @include sna_item_col_width_abs(100%);
+    transition: 0s #{$tab_anim_duration} transform linear;
+    position: relative;
+    min-height: 100vh;
+    background-color: $body_bg_color;
+    background-color: var(--body_bg_color);
+    &.overview {
+        transform: translateX(-100%);
+        &.active {
+            transition: #{$tab_anim_duration} 0s transform linear;
+            transform: translateX(0%);
+            z-index: 1;
+        }
+    }
+
+    &.cast {
+        transform: translateX(100%);
+        &.active {
+            transition: #{$tab_anim_duration} 0s transform linear;
+            transform: translateX(-100%);
+            z-index: 1;
+        }
+    }
+}
+

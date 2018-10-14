@@ -1,0 +1,30 @@
+.mv_img_cont{
+	height: 35vmax;
+    overflow: hidden;
+}
+
+.mv_slider{
+	color: red;
+	display: flex;
+    overflow-x: scroll;
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+	> div{
+		display: inline;
+		position: relative;
+		    margin: 5px 5px;
+	}
+	img{
+		height: 100%;
+    	width: auto;
+	}
+
+	.mv_slider_img{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left:0;
+	}
+}

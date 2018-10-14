@@ -1,0 +1,68 @@
+@mixin responsive-unit($propName, $unit, $minVal, $maxVal, $minPoint, $maxPoint) {
+    $res-mq: "#{$screen} and (min-width:#{$minPoint}px) and (max-width:#{$maxPoint}px)";
+    $res-max-mq: "#{$screen} and (min-width:#{$maxPoint}px)";
+
+    #{$propName}: #{$minVal}px;
+    @media #{$res-max-mq} {
+        #{$propName}: #{$maxVal}px;
+    }
+    @media #{$res-mq} {
+        #{$propName}: calc( #{$minVal}px + (#{$maxVal} - #{$minVal}) * (100vw - #{$minPoint}px) / (#{$maxPoint} - #{$minPoint}));
+    }
+}
+
+
+/*START:Flexbox Mixins */
+@mixin sna_flex_container($isImportant:"") {
+    @if $isImportant == 'important' {
+        display: -ms-flexbox  !important;
+        display: -webkit-flex  !important;
+        display: flex  !important;
+   } @else {
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+   }
+}
+
+@mixin sna_flex_container_wrap($wrap-val: nowrap) {
+    //wrap value
+    -ms-flex-wrap: $wrap-val;
+    -webkit-flex-wrap: $wrap-val;
+    flex-wrap: $wrap-val;
+}
+
+@mixin sna_flex_item(){
+  -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+
+}
+@mixin sna_item_col_width_rel($columns_no, $total_columns_no) {
+    $width: ($columns_no / $total_columns_no) * 100%;
+    @include sna_item_col_width_abs($width);
+}
+
+@mixin sna_item_col_width_abs($col_width) {
+    width: $col_width;
+}
+
+/*END:Flexbox Mixins */
+
+/*START:Aspect Ratio Mixins */
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .aspect_content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+/*END:Aspect Ratio Mixins */

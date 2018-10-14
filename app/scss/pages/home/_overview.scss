@@ -1,0 +1,39 @@
+
+
+
+.mv_cont{
+	background-color: $content_bg_color;
+	background-color: var(--content_bg_color);
+	margin: 5px; 
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.mv_heading1{
+	
+	font-weight: bold;
+}
+.mv_cont_content{
+	padding-top: 10px;
+}
+
+.dir_name{
+	padding-top: 10px;
+}
+
+.mv_ratings_cont{
+	@include sna_flex_container();
+	@include sna_flex_container_wrap(wrap);
+}
+
+.mv_ratings_item{
+	@include sna_flex_item();
+	@include sna_item_col_width_abs(100%);
+
+	padding-top: 10px;
+	&:first-child{
+		padding-top: 0;
+	}
+
+	
+}
