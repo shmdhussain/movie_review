@@ -21,7 +21,8 @@ addEventListener('install', installEvent => {
                 'index.html',
                 'data/tt0468569.json',
                 'js/home.min.js',
-                'css/home.min.css',
+                'css/pages/home.min.css',
+                'css/common/common.min.css',
                 'images/icons/baseline-more_vert-24px.svg',
                 'images/placeholder_200X266.png',
                 'images/placeholder_270X480.png'

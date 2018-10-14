@@ -5,7 +5,7 @@ window.showPageLoader();
 
 /*START: Service Worker Scripts*/
 if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/serviceworker.js', {scope:"/"})
+    navigator.serviceWorker.register('serviceworker.js')
         .then(function(registration) {
             console.log('movie sw Success!', registration.scope);
         })
@@ -108,18 +108,20 @@ window.fetchJsonData("data/tt0468569.json").then(function (data) {
 	
 
      var fillCastDetailTmplItem = function (data, castImagesBaseUrl) {
-		var castDetailItemTmpl = `<a href="../castDetail/${data.imageUrlName}.html" class="cast_item">
+		var castDetailItemTmpl = `<a href="castDetail/${data.imageUrlName}.html" class="cast_item">
 						            <div class="cast_media">
-						              <img src="../images/placeholder_200X266.png" alt="${data.imageUrlName}" class="placeholder_img_3_4 mv_cast_placeholder_img">
-						              <picture>
-						                <source type="image/webp" srcset="${castImagesBaseUrl}/webp/${data.imageUrlName}.webp"> 
-						                <img src="${castImagesBaseUrl + data.imageUrlName}.jpg" alt="${data.imageUrlName}" class="mv_cast_img">
-						              </picture>
+						                <div class="cast_media_inner">
+							              <img src="images/placeholder_200X266.png" alt="${data.imageUrlName}" class="placeholder_img_3_4 mv_cast_placeholder_img">
+							              <picture>
+							                <source type="image/webp" srcset="${castImagesBaseUrl}/webp/${data.imageUrlName}.webp"> 
+							                <img src="${castImagesBaseUrl + data.imageUrlName}.jpg" alt="${data.imageUrlName}" class="mv_cast_img">
+							              </picture>
+						            	</div>
 						            </div>
 
 						            <div class="cast_info">
-						              <h3 class="cast_name">Christian Bale</h3>
-						              <h4 class="cast_char_name">Bruce Wayne</h4>
+						              <h3 class="cast_name">${data.name}</h3>
+						              <h4 class="cast_char_name">${data.characterName}</h4>
 						            </div>
 
 						          </a>`;

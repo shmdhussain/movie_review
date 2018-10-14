@@ -58,7 +58,7 @@
         "imageUrlName": "Michael_Caine"
       }
    ],
-   "castImagesBaseUrl": "../images/movieCastImages/3_4/",
+   "castImagesBaseUrl": "images/movieCastImages/3_4/",
    "movieImages": [
     {
       "imageUrl":"mv_img_1",

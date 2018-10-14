@@ -19,6 +19,15 @@
 
 .cast_media{
 	position: relative;
+
+}
+
+.cast_media_inner{
+	display: inline-block;
+    position: relative;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .mv_cast_placeholder_img{
 	max-width: 100%;

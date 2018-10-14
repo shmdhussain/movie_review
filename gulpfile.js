@@ -120,6 +120,13 @@ gulp.task('copyManifest', function() {
         .pipe(gulp.dest('dist'))
 });
 
+// Copying fav icons
+gulp.task('copyFavIcons', function() {
+    return gulp.src('app/favicon.ico')
+        .pipe(gulp.dest('dist'))
+});
+
+
 // Cleaning 
 gulp.task('clean', function() {
     return del.sync('dist').then(function(cb) {
@@ -143,7 +150,7 @@ gulp.task('default', function(callback) {
 gulp.task('build', function(callback) {
     runSequence(
         'clean:dist',
-        'sass', 'js', 'useref:home', 'useref:castDetail', [  'images', 'fonts', 'copyTestData', 'copyServiceWorker', 'copyManifest'],
+        'sass', 'js', 'useref:home', 'useref:castDetail', [  'images', 'fonts', 'copyTestData', 'copyServiceWorker', 'copyManifest', 'copyFavIcons'],
         callback
     )
 })
