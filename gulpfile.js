@@ -60,10 +60,17 @@ gulp.task('watch', function() {
 // ------------------
 
 // Optimizing CSS and JavaScript 
-gulp.task('useref', function() {
+gulp.task('useref:castDetail', function() {
+    return gulp.src(['app/castDetail/**/*.html'])
+        .pipe(useref())
+        .pipe(gulpIf('*.js', uglify()))
+        .pipe(gulpIf('*.css', cssnano()))
+        .pipe(gulp.dest('dist/castDetail'));
+});
 
-    // return gulp.src(['app/**/*.html', '!app/castDetail/**/*.html'])
-    return gulp.src(['app/**/*.html'])
+// Optimizing CSS and JavaScript 
+gulp.task('useref:home', function() {
+    return gulp.src(['app/**/*.html', '!app/castDetail/**/*.html'])
         .pipe(useref())
         .pipe(gulpIf('*.js', uglify()))
         .pipe(gulpIf('*.css', cssnano()))
@@ -136,7 +143,7 @@ gulp.task('default', function(callback) {
 gulp.task('build', function(callback) {
     runSequence(
         'clean:dist',
-        'sass', 'js', [ 'useref', 'images', 'fonts', 'copyTestData', 'copyServiceWorker', 'copyManifest'],
+        'sass', 'js', 'useref:home', 'useref:castDetail', [  'images', 'fonts', 'copyTestData', 'copyServiceWorker', 'copyManifest'],
         callback
     )
 })
