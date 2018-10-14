@@ -15,7 +15,7 @@ if (navigator.serviceWorker) {
 /*END: Service Worker Scripts*/
 
 
-window.fetchJsonData("/data/tt0468569.json").then(function (data) {
+window.fetchJsonData("../data/tt0468569.json").then(function (data) {
   console.log("Movie Data fetch success");
   console.log(data);
   /*START: fill the header data*/
